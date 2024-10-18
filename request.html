@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Request Form</h1>
+    </header>
+
+    <section class="form-section">
+        <h3>Enter Your Details</h3>
+        <form id="request-form">
+            <label for="ern">Enter ERN Number/Roll No:</label>
+            <input type="text" id="ern" name="ern" required>
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required></textarea>
+
+            <!-- Room Options -->
+            <div id="room-options" style="display:none;">
+                <label for="roomType">Select Room Type:</label>
+                <select id="roomType" name="roomType">
+                    <option value="single">Single Sharing</option>
+                    <option value="double">Double Sharing</option>
+                    <option value="triple">Triple Sharing</option>
+                </select>
+            </div>
+
+            <!-- Accessories Options -->
+            <div id="accessories-options" style="display:none;">
+                <label for="accessories">Select Accessories (Max 12):</label>
+                <select id="accessories" name="accessories" multiple>
+                    <option value="almirah">Almirah</option>
+                    <option value="studyTable">Study Table</option>
+                    <option value="kettle">Kettle</option>
+                    <option value="bedsheet">Bedsheet</option>
+                    <option value="lamp">Lamp</option>
+                </select>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const requestType = urlParams.get('type');
+
+            const roomOptions = document.getElementById('room-options');
+            const accessoriesOptions = document.getElementById('accessories-options');
+
+            if (requestType === 'roomChange') {
+                roomOptions.style.display = 'block';
+            } else if (requestType === 'accessories') {
+                accessoriesOptions.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
