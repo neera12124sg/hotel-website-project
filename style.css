@@ -29,7 +29,7 @@ header {
     text-align: center;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    height: 100px;
+    height: 100px; /* Default height for PC view */
 }
 
 .grid-item:hover {
@@ -60,40 +60,37 @@ header {
 /* Media Query for PC View */
 @media (min-width: 768px) {
     .gallery img {
-        max-width: 250px;
-        max-height: 250px;
+        max-width: 250px; /* Increased for PC view */
+        max-height: 250px; /* Increased for PC view */
     }
-
+    
     .grid-container {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 1fr); /* Align boxes in three columns */
     }
 
     .grid-item {
-        height: 100px;
+        height: 100px; /* Ensure consistent height for all items in PC view */
     }
 }
 
 /* Media Query for Mobile View */
 @media (max-width: 767px) {
     .grid-item {
-        height: 60px;
-        font-size: 14px;
-        padding: 8px;
+        height: 60px; /* Smaller height for mobile view */
+        font-size: 14px; /* Adjust font size for better fit */
+        padding: 8px; /* Slightly less padding */
     }
 }
 
-/* Input Styles */
 input[type="text"], textarea {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    margin: 10px 0;
+    box-sizing: border-box;
 }
 
-/* Textarea Specific Styles */
 textarea {
-    height: 150px;
-    resize: vertical;
+    height: 100px; /* Adjust height for description */
 }
 
 .modal {
@@ -132,9 +129,9 @@ textarea {
 }
 
 .footer-address, .footer-contacts {
-    width: 45%;
+    width: 45%; /* Adjust width as needed */
 }
 
 .footer-address h4, .footer-contacts h4 {
-    margin: 0 0 10px 0;
+    margin: 0 0 10px 0; /* Margin for heading */
 }
