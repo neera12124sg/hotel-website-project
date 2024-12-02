@@ -1,31 +1,81 @@
-<form id="request-form">
-    <label for="ern">Enter ERN Number/Roll No:</label>
-    <input type="text" id="ern" name="ern" required>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostel Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Hostel Management System</h1>
+    </header>
 
-    <label for="description">Description:</label>
-    <textarea id="description" name="description" required></textarea>
+    <section class="grid-section">
+        <div class="grid-container">
+            <div class="grid-item" onclick="openModal('roomChange')">Room Change Request</div>
+            <div class="grid-item" onclick="openModal('accessories')">Need of Accessory</div>
+            <div class="grid-item" onclick="openModal('rules')">Rules and Regulations</div>
+            <div class="grid-item" onclick="openModal('announcements')">Announcements</div>
+        </div>
+    </section>
 
-    <!-- Room Options -->
-    <div id="room-options" style="display:none;">
-        <label for="roomType">Select Room Type:</label>
-        <select id="roomType" name="roomType">
-            <option value="single">Single Sharing</option>
-            <option value="double">Double Sharing</option>
-            <option value="triple">Triple Sharing</option>
-        </select>
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <form id="request-form">
+                <label for="ern">Enter ERN Number/Roll No:</label>
+                <input type="text" id="ern" name="ern" required>
+
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" required></textarea>
+
+                <!-- Room Options -->
+                <div id="room-options" style="display:none;">
+                    <label for="roomType">Select Room Type:</label>
+                    <select id="roomType" name="roomType">
+                        <option value="single">Single Sharing</option>
+                        <option value="double">Double Sharing</option>
+                        <option value="triple">Triple Sharing</option>
+                    </select>
+                </div>
+
+                <!-- Accessories Options -->
+                <div id="accessories-options" style="display:none;">
+                    <label for="accessories">Select Accessories (Max 12):</label>
+                    <select id="accessories" name="accessories" multiple>
+                        <option value="almirah">Almirah</option>
+                        <option value="studyTable">Study Table</option>
+                        <option value="kettle">Kettle</option>
+                        <option value="bedsheet">Bedsheet</option>
+                        <option value="lamp">Lamp</option>
+                    </select>
+                </div>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
     </div>
 
-    <!-- Accessories Options -->
-    <div id="accessories-options" style="display:none;">
-        <label for="accessories">Select Accessories (Max 12):</label>
-        <select id="accessories" name="accessories" multiple>
-            <option value="almirah">Almirah</option>
-            <option value="studyTable">Study Table</option>
-            <option value="kettle">Kettle</option>
-            <option value="bedsheet">Bedsheet</option>
-            <option value="lamp">Lamp</option>
-        </select>
+    <!-- Rules Modal -->
+    <div id="rules-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Rules and Regulations</h2>
+            <p>Please read the hostel rules carefully.</p>
+        </div>
     </div>
 
-    <button type="submit">Submit</button>
-</form>
+    <!-- Announcement Modal -->
+    <div id="announcement-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Announcements</h2>
+            <p>Latest hostel announcements will appear here.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
