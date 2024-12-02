@@ -5,9 +5,6 @@ function openModal(type) {
     const accessoriesOptions = document.getElementById('accessories-options');
     const rulesModal = document.getElementById('rules-modal');
     const announcementModal = document.getElementById('announcement-modal');
-    const ernField = document.getElementById('ern').parentElement; // Parent includes the label
-    const descriptionField = document.getElementById('description').parentElement; // Parent includes the label
-    const submitButton = form.querySelector('button[type="submit"]');
 
     // Hide all modals first
     modal.style.display = 'none';
@@ -18,9 +15,6 @@ function openModal(type) {
     form.reset();
     roomOptions.style.display = 'none';
     accessoriesOptions.style.display = 'none';
-    ernField.style.display = 'block'; // Show by default
-    descriptionField.style.display = 'block'; // Show by default
-    submitButton.style.display = 'block'; // Show by default
 
     // Show specific options based on box clicked
     if (type === 'roomChange') {
@@ -31,14 +25,8 @@ function openModal(type) {
         accessoriesOptions.style.display = 'block';
     } else if (type === 'rules') {
         rulesModal.style.display = 'flex';
-        ernField.style.display = 'none'; // Hide ERN field
-        descriptionField.style.display = 'none'; // Hide Description field
-        submitButton.style.display = 'none'; // Hide Submit button
     } else if (type === 'announcements') {
         announcementModal.style.display = 'flex';
-        ernField.style.display = 'none'; // Hide ERN field
-        descriptionField.style.display = 'none'; // Hide Description field
-        submitButton.style.display = 'none'; // Hide Submit button
     } else {
         modal.style.display = 'flex';
     }
@@ -59,4 +47,4 @@ window.onclick = function(event) {
             modal.style.display = 'none';
         }
     });
-};
+}
